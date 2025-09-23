@@ -1,10 +1,11 @@
-
+import { Box } from "@mui/material"
+import Header from "./components/Header"
 function App() {
 
   return (
-    <>
-      <h1> aqui é onde colocaremos nosso código</h1>
-    </>
+    <Box>
+      <Header title = "Gestão de produtos"/>
+    </Box>
   )
 }
 
