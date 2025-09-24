@@ -1,6 +1,21 @@
 import { Box, Paper, Table, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
+import type { CategoriaDTO } from "../../../models/categoria";
+import * as categoriaService from "../../../services/categoria-service"
 
 export default function ListarCategorias() {
+
+    const [categorias, setCategorias] = useState<CategoriaDTO[]>([])
+
+    useEffect(() => {
+
+        const fetchCategorias = async () =>{
+            const data = await categoriaService.findAll();
+            setCategorias(data);
+        }
+        fetchCategorias();
+    }, [])
+
   return (
     <Box sx={{ p: 4 }}>
       <Typography variant="h4" component="h1" gutterBottom>
